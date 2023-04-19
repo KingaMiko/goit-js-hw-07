@@ -21,23 +21,41 @@ function createMarkup(item) {
     .join("");
 }
 
+// const selectImage = (event) => {
+//   event.preventDefault();
+//   if (event.target.nodeName !== "IMG") {
+//     return;
+//   }
+//   const source = event.target.dataset.source;
+//   const instance = basicLightbox.create(`
+//   <img src="${source}" width="800" height="600">
+// `);
+//   instance.show();
+
+//   const keyClose = (event) => {
+//     if (event.key === "Escape" && instance.visible) {
+//       instance.close();
+//     }
+//   };
+//   document.addEventListener("keydown", keyClose);
+// };
+
 const selectImage = (event) => {
   event.preventDefault();
-  if (event.target.nodeName !== "IMG") {
-    return;
-  }
-  const source = event.target.dataset.source;
-  const instance = basicLightbox.create(`
+  const source =
+    event.target.nodeName === "IMG" ? event.target.dataset.source : null;
+  if (source) {
+    const instance = basicLightbox.create(`
   <img src="${source}" width="800" height="600">
 `);
-  instance.show();
-
-  const keyClose = (event) => {
-    if (event.key === "Escape" && instance.visible()) {
-      instance.close();
-    }
-  };
-  document.addEventListener("keydown", keyClose);
+    instance.show();
+    const keyClose = (event) => {
+      if (event.key === "Escape" && instance.visible()) {
+        instance.close();
+      }
+    };
+    document.addEventListener("keydown", keyClose);
+  }
 };
 
 gallery.addEventListener("click", selectImage);
