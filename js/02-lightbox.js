@@ -14,11 +14,20 @@ function createMarkup(item) {
     .join("");
 }
 
-var lightbox = new SimpleLightbox(".gallery a", {
+let lightbox = new SimpleLightbox(".gallery a", {
   captionsData: "alt",
   captionDelay: 250,
   captionType: Text,
   scrollZoom: false,
 });
+
+const selectImage = (event) => {
+  event.preventDefault();
+  if (event.target.nodeName !== "IMG") {
+    return;
+  }
+  lightbox.open(event.target);
+};
+gallery.addEventListener("click", selectImage);
 
 console.log(galleryItems);
