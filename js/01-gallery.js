@@ -41,6 +41,7 @@ function createMarkup() {
 //   imageBox.dataset.source = item.original;
 //   imageBox.classList.add("gallery__image");
 //   innerBox.append(imageBox);
+//   console.log(item);
 // });
 
 //Method 3
