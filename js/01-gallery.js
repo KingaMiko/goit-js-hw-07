@@ -33,15 +33,12 @@ function createMarkup() {
 //   innerBox.classList.add("gallery__link");
 //   innerBox.href = item.original;
 //   galleryContainer.append(innerBox);
-
 //   const imageBox = document.createElement("img");
-//   imageBox.textContent = item;
 //   imageBox.src = item.preview;
 //   imageBox.alt = item.description;
 //   imageBox.dataset.source = item.original;
 //   imageBox.classList.add("gallery__image");
 //   innerBox.append(imageBox);
-//   console.log(item);
 // });
 
 //Method 3
